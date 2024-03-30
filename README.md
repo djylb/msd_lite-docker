@@ -20,7 +20,7 @@ docker start msd_lite
 
 
 # 高级模式
-docker run -d --name=msd_lite -e IFNAME=enp7s0 -e PORT=7088 --restart=unless-stopped -v ${PWD}/msd_lite/:/etc/msd_lite/ --net=host duan2001/msd_lite
+docker run -d --name=msd_lite -e IFNAME=br1 -e PORT=7088 --restart=unless-stopped -v ${PWD}/msd_lite/:/etc/msd_lite/ --net=host duan2001/msd_lite
 ```
 
 ## Links
