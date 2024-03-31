@@ -9,18 +9,18 @@
 # 直接配置组播所在网卡和监听端口号（支持参数传递和环境变量两种配置方式，环境变量优先级最高）
 docker run --name msd_lite -e IFNAME=enp7s0 -e PORT=7088 --net=host --restart=unless-stopped duan2001/msd_lite
 # 或者
-docker run --name msd_lite --net=host --restart=unless-stopped duan2001/msd_lite vlan77 7088 # 监听端口号可省略
+docker run --name msd_lite --net=host --restart=unless-stopped duan2001/msd_lite vlan77 7088 # 网卡 端口号 （监听端口号可省略）
 
 
 # 手动配置文件
 # 第一次启动后编辑msd_lite目录下的配置文件msd_lite.conf.sample，并去掉结尾的.sample
-docker run -d --name=msd_lite --restart=unless-stopped -v ${PWD}/msd_lite/:/etc/msd_lite/ --net=host duan2001/msd_lite
+docker run -d --name=msd_lite --restart=unless-stopped -v ${PWD}/msd_lite:/etc/msd_lite --net=host duan2001/msd_lite
 # 之后再次启动即可
 docker start msd_lite
 
 
-# 高级模式
-docker run -d --name=msd_lite -e IFNAME=br1 -e PORT=7088 --restart=unless-stopped -v ${PWD}/msd_lite/:/etc/msd_lite/ --net=host duan2001/msd_lite
+# 高级用法
+docker run -d --name=msd_lite -e IFNAME=br1 -e PORT=7088 --restart=unless-stopped -v ${PWD}/msd_lite:/etc/msd_lite --net=host duan2001/msd_lite
 ```
 
 ## Links
