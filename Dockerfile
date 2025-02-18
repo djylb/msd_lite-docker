@@ -22,7 +22,7 @@ RUN git clone --recursive https://github.com/rozhuk-im/msd_lite.git
 RUN cd msd_lite && mkdir build && cd build && cmake .. &&  make -j 8 && make install
 
 
-FROM debian:stable
+FROM debian:stable-slim
 
 COPY --from=builder /usr/local/bin/msd_lite /usr/local/bin/msd_lite
 COPY --from=builder /usr/local/etc/msd_lite/msd_lite.conf.sample /usr/local/etc/msd_lite/msd_lite.conf.sample
