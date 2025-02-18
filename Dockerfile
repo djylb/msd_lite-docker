@@ -1,9 +1,6 @@
-FROM phusion/baseimage:noble-1.0.0 AS builder
+FROM debian:stable AS builder
 
 LABEL maintainer="D-Jy <duan@d-jy.net>"
-
-# Use baseimage-docker's init system.
-CMD ["/sbin/my_init"]
 
 RUN echo 'APT::Get::Clean=always;' >> /etc/apt/apt.conf.d/99AutomaticClean && \
     apt-get update -qqy && \
@@ -16,8 +13,9 @@ RUN echo 'APT::Get::Clean=always;' >> /etc/apt/apt.conf.d/99AutomaticClean && \
 
 WORKDIR /tmp
 
-RUN git clone --recursive https://github.com/rozhuk-im/msd_lite.git && \
-    cd msd_lite && \
+RUN git clone --recursive https://github.com/rozhuk-im/msd_lite.git
+
+RUN cd msd_lite && \
     cp conf/msd_lite.conf conf/msd_lite.conf.sample && \
     mkdir build && cd build && \
     LDFLAGS="-static" CXXFLAGS="-static" CFLAGS="-static" cmake .. \
