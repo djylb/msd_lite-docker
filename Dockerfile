@@ -9,7 +9,8 @@ RUN echo 'APT::Get::Clean=always;' >> /etc/apt/apt.conf.d/99AutomaticClean && \
         git \
         cmake \
         fakeroot \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        ca-certificates \
+    && update-ca-certificates && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /tmp
 
