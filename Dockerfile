@@ -1,6 +1,9 @@
-FROM ubuntu:latest AS builder
+FROM phusion/baseimage:noble-1.0.0 AS builder
 
 LABEL maintainer="D-Jy <duan@d-jy.net>"
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
 
 RUN echo 'APT::Get::Clean=always;' >> /etc/apt/apt.conf.d/99AutomaticClean && \
     apt-get update -qqy && \
