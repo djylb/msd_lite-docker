@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Read network interface name and port from environment variables or command line arguments
 ifName=${IFNAME:-$1}
