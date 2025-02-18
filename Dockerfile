@@ -21,8 +21,8 @@ RUN cd msd_lite && \
     mkdir build && cd build && \
     LDFLAGS="-static" CXXFLAGS="-static" CFLAGS="-static" cmake .. \
       -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_C_FLAGS="-O3 -mtune=generic -flto -static" \
-      -DCMAKE_CXX_FLAGS="-O3 -mtune=generic -flto -static" \
+      -DCMAKE_C_FLAGS="-O3 -flto -static" \
+      -DCMAKE_CXX_FLAGS="-O3 -flto -static" \
       -DCMAKE_EXE_LINKER_FLAGS="-static" && \
     make -j$(nproc)
 
