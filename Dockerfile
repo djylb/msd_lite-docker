@@ -1,4 +1,4 @@
-FROM phusion/baseimage:jammy-1.0.1 as builder
+FROM phusion/baseimage:noble-1.0.0 AS builder
 
 MAINTAINER D-Jy <duan@d-jy.net>
 
