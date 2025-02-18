@@ -32,7 +32,7 @@ RUN mkdir -p /app && \
     install -m 644 /tmp/msd_lite/msd_lite.conf /app/msd_lite.conf && \
     install -m 755 /tmp/msd_lite/msd_lite.sh /app/msd_lite.sh
 
-FROM busybox:stable-uclibc
+FROM busybox:stable-glibc
 
 COPY --from=builder /app /app
 
