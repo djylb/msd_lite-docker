@@ -4,6 +4,8 @@
 
 [DockerHUB](https://hub.docker.com/r/duan2001/msd_lite)
 
+[GHCR](https://github.com/djylb/msd_lite-docker/pkgs/container/msd_lite)
+
 ## 使用说明
 ```shell
 # 直接配置组播所在网卡和监听端口号（支持参数传递和环境变量两种配置方式，环境变量优先级最高）
