@@ -7,15 +7,15 @@ port=${PORT:-$2}
 # Check if the msd_lite configuration file exists
 if [ -f /etc/msd_lite/msd_lite.conf ]; then
     # If the configuration file exists, run msd_lite with it
-    /usr/local/bin/msd_lite -c /etc/msd_lite/msd_lite.conf
+    /usr/bin/msd_lite -c /etc/msd_lite/msd_lite.conf
 else
     # If not, copy the sample configuration file to the directory
-    cp /usr/local/etc/msd_lite/msd_lite.conf.sample /etc/msd_lite/msd_lite.conf.sample
+    cp /root/msd_lite.conf.sample /etc/msd_lite/msd_lite.conf.sample
 fi
 
 # Exit if no network interface name is provided
 if [ -z "$ifName" ]; then
-    echo "Please modify /etc/msd_lite/msd_lite.conf.sample and rename it to msd_lite.conf. Exiting."
+    echo "Please rename /etc/msd_lite/msd_lite.conf.sample to msd_lite.conf and modify it. Exiting."
     exit 1
 fi
 
@@ -31,4 +31,4 @@ if [ ! -z "$port" ]; then
 fi
 
 # Execute msd_lite with the configuration file
-/usr/local/bin/msd_lite -c /etc/msd_lite/msd_lite.conf
+/usr/bin/msd_lite -c /etc/msd_lite/msd_lite.conf
