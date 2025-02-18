@@ -15,7 +15,7 @@ docker run --name msd_lite --net=host --restart=unless-stopped duan2001/msd_lite
 
 
 # 手动配置文件
-# 第一次启动后编辑msd_lite目录下的配置文件msd_lite.conf.sample，并去掉结尾的.sample
+# 第一次启动后将msd_lite目录下的配置文件msd_lite.conf.sample重命名为msd_lite.conf，然后根据需要修改配置
 docker run -d --name=msd_lite --restart=unless-stopped -v ${PWD}/msd_lite:/etc/msd_lite --net=host duan2001/msd_lite
 # 之后再次启动即可
 docker start msd_lite
