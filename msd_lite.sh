@@ -16,7 +16,7 @@ else
 fi
 
 if [ -z "$ifName" ]; then
-    echo "Error: Rename /etc/msd_lite/msd_lite.conf.sample to msd_lite.conf and modify it."
+    echo "Please rename /etc/msd_lite/msd_lite.conf.sample to msd_lite.conf and modify it."
     exit 1
 fi
 
