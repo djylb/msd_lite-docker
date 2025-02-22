@@ -11,7 +11,7 @@ A Docker container for **msd_lite**, similar to **udpxy**, which converts multic
 
 ## Auto configuration | 自动配置
 ```shell
-# Use ENV | 通过环境变量配置
+# Use ENV | 通过环境变量配置 网卡 端口号
 # (supports both parameter passing and environment variables, with environment variables taking priority)
 docker run --name msd_lite -e IFNAME=enp7s0 -e PORT=7088 --net=host --restart=unless-stopped duan2001/msd_lite
 
