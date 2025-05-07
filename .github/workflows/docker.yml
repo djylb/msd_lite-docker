@@ -50,10 +50,10 @@ jobs:
           remote=${{ steps.get_sha.outputs.result }}
           echo "Current SHA: $current"
           echo "CURRENT_SHA=$current" >> $GITHUB_ENV
-          echo "Remote SHA: $remote"
+          echo "Remote  SHA: $remote"
           echo "REMOTE_SHA=$remote" >> $GITHUB_ENV
           
-          if [[ "$current" == "$remote" ]]; then
+          if [[ "$current" == "$remote" && "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "SKIP=true" >> $GITHUB_ENV
             echo "No changes detected."
           else
